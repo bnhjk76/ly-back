@@ -17,6 +17,7 @@ function route (path, file, name, children) {
 export default new Router({
   routes: [
     route("/login",'/Login',"Login"),// /login路径，路由到登录组件
+    route("/crud/ListPage","/crud/ListPage","ListPage"),
     {
       path:"/", // 根路径，路由到 Layout组件
       component: () => import('../pages/Layout'),
@@ -28,8 +29,10 @@ export default new Router({
         route("/item/list",'/item/Goods',"Goods"),
         route("/item/specification",'/item/specification/Specification',"Specification"),
         route("/user/statistics",'/item/Statistics',"Statistics"),
-        route("/trade/promotion",'/trade/Promotion',"Promotion")
+        route("/trade/promotion",'/trade/Promotion',"Promotion"),
+
       ]
     }
+
   ]
 })
