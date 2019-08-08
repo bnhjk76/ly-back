@@ -10,10 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: { // 该属性参考资料 https://segmentfault.com/a/1190000016199721
+      '/api': {
+        target: 'http://127.0.0.1:10010', //本地提供服务的地址 比如API请求/api/list, 会被代理到请求 http://${target}/api/list 。
+        changeOrigin: true, // 这个参数可以让target参数是域名。 如果是域名需要额外添加一个参数changeOrigin: true，否则会代理失败。
+      }
+    },
 
     // Various Dev Server settings
-    host: '0.0.0.0', // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 9001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
